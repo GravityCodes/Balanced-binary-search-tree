@@ -1,7 +1,57 @@
 import Tree from "./BST.js";
 
-const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+const Array = [];
 
-const BST = new Tree(array);
+for(let i=0; i < 101; i++){
+    Array.push(parseInt(Math.random() * 101));
+}
 
-BST.prettyPrint(BST.root);
+
+
+const binarySearchTree = new Tree(Array);
+
+console.log(binarySearchTree.isBalanced());
+
+function printLevelOrder(node){
+    console.log(`${node.data} read level order`);
+}
+
+function printInOrder(node){
+    console.log(`${node.data} read in-order`);
+}
+
+function printPreOrder(node){
+    console.log(`${node.data} read  pre-order`);
+}
+
+function printPostOrder(node){
+    console.log(`${node.data} read post-order`);
+}
+
+binarySearchTree.insert(43);
+binarySearchTree.insert(53);
+binarySearchTree.insert(34);
+binarySearchTree.insert(42);
+binarySearchTree.insert(51);
+binarySearchTree.insert(31);
+binarySearchTree.insert(44);
+binarySearchTree.insert(52);
+binarySearchTree.insert(32);
+
+
+binarySearchTree.levelOrder(printLevelOrder);
+binarySearchTree.preOrder(printPreOrder);
+binarySearchTree.postOrder(printPostOrder);
+binarySearchTree.inOrder(printInOrder);
+
+console.log(binarySearchTree.isBalanced());
+
+binarySearchTree.prettyPrint(binarySearchTree.root);
+
+binarySearchTree.reBalance();
+console.log(binarySearchTree.isBalanced());
+
+binarySearchTree.levelOrder(printLevelOrder);
+binarySearchTree.preOrder(printPreOrder);
+binarySearchTree.postOrder(printPostOrder);
+binarySearchTree.inOrder(printInOrder);
